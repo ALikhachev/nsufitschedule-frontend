@@ -1,0 +1,32 @@
+.groups {
+  font-size: 14px;
+  font-weight: 400;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.group {
+}
+
+.group-name {
+  font-weight: 700;
+}
+
+.students {
+  padding: 0;
+  min-width: 150px;
+  list-style: none;
+}
+
+.student {
+  width: 150px;
+  height: 20px;
+  background-color: lightgray;
+  border: 1px solid black;
+}
+
+.student.selected {
+  background-color: darkgray;
+}
