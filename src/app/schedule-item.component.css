@@ -1,0 +1,34 @@
+.item {
+  border: 1px solid black;
+  border-bottom: none;
+  height: 30px;
+  padding: 3px 4px;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-info {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.subj-name {
+  display: inline-block;
+  width: calc(100% - 65px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.room {
+  float: right;
+}
+
+.bad {
+  background-color: brown !important;
+  color: white;
+  cursor: pointer;
+}

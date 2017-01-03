@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {ScheduleService} from "./schedule.service";
 import {ScheduleItem} from "./schedule";
-import {Student} from "./student";
 import {ActivatedRoute, Params} from "@angular/router";
 
 import 'rxjs/add/operator/switchMap';

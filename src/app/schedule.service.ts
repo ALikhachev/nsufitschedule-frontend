@@ -19,11 +19,13 @@ export class ScheduleService {
           items.push(new Array(7) as ScheduleItem[]);
         }
         for (let rawItem of data) {
+          const overlap: ScheduleItem = items[rawItem.weekday][rawItem.time];
           items[rawItem.weekday][rawItem.time] = {
             name: rawItem.name,
             room: rawItem.room,
-            lecture: rawItem.lecture
-          } as ScheduleItem
+            lecture: rawItem.lecture,
+            overlap: overlap
+          } as ScheduleItem;
         }
         return items;
       })

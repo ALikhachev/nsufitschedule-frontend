@@ -1,0 +1,6 @@
+<div class="item" [class.bad]="item && item.overlap" (click)="showNextItem()">
+  <span *ngIf="shownItem" class="item-info">
+    <span class="subj-name" title="{{shownItem.name}}">{{shownItem.name}}</span>
+    <span class="room">{{shownItem.room}}</span>
+  </span>
+</div>

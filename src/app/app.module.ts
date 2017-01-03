@@ -11,12 +11,14 @@ import { GroupListComponent } from "./group-list.component";
 import {ScheduleService} from "./schedule.service";
 import {AppRoutingModule} from "./app-routing.module";
 import {FirstWordPipe} from "./first_word.pipe";
+import {ScheduleItemComponent} from "./schedule-item.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstWordPipe,
     ScheduleComponent,
+    ScheduleItemComponent,
     GroupListComponent,
   ],
   imports: [

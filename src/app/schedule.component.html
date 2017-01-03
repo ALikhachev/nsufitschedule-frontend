@@ -2,10 +2,8 @@
   <div *ngFor="let schedDay of schedule; let i = index" class="day">
     <span class="weekday">{{convertWeekdayToWord(i)}}</span>
     <div *ngFor="let schedItem of schedDay" class="item">
-      <div *ngIf="schedItem" mdTooltip="{{schedItem.name}}">
-        <div class="subj-name">{{schedItem.name}}</div>
-        <div class="room">{{schedItem.room}}</div>
-      </div>
+      <schedule-item [item]="schedItem">
+      </schedule-item>
     </div>
   </div>
 </div>
