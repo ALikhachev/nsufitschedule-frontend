@@ -1,22 +1,19 @@
 .schedule {
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;     /* NEW - Chrome */
-  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  justify-content: center;
-  -webkit-justify-content: center;
+  /*display: flex;*/
+  /*flex-wrap: wrap;*/
+  /*justify-content: center;*/
   font-size: 14px;
   font-weight: 400;
 }
 
 .day {
-  width: 30%;
+  display: inline-block;
+  width: calc(100% / 3 - 10px);
   align-content: center;
-  min-width: 390px;
+  min-width: 350px;
+  max-width: 100vw;
   margin: 5px;
+  vertical-align: top;
 }
 
 .weekday {
