@@ -12,11 +12,13 @@ import {ScheduleService} from "./schedule.service";
 import {AppRoutingModule} from "./app-routing.module";
 import {FirstWordPipe} from "./first_word.pipe";
 import {ScheduleItemComponent} from "./schedule-item.component";
+import {LegendComponent} from "./legend.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstWordPipe,
+    LegendComponent,
     ScheduleComponent,
     ScheduleItemComponent,
     GroupListComponent,

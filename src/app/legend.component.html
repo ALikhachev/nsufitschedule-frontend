@@ -1,0 +1,52 @@
+<div class="header">
+  Легенда
+</div>
+<div class="legend-items">
+  <div class="legend-item">
+    <span class="legend-example">
+      <div class="item">
+        <div class="item-info">
+          <span class="subj-name">Имя курса 1</span>
+          <span class="room">аудитория</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-info">
+          <span class="subj-name">Имя курса 2</span>
+          <span class="room">аудитория</span>
+        </div>
+      </div>
+    </span>
+    <span class="legend-description">
+      Нормальные курсы
+    </span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-example">
+      <div class="item bad" (click)="showNextCourse()">
+        <div class="item-info">
+          <span class="subj-name">{{shownCourse}}</span>
+          <span class="room">аудитория</span>
+        </div>
+      </div>
+    </span>
+    <span class="legend-description">
+      Несколько курсов в одно время, для просмотра каждого кликните на строчку
+    </span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-example">
+      <div class="item">
+        <div class="item-info">
+          <span class="subj-name" title="Очень длинное имя курса">Очень длинное имя курса</span>
+          <span class="room">аудитория</span>
+        </div>
+      </div>
+    </span>
+    <span class="legend-description">
+      Для просмотра длинного имени наведите курсор на имя
+    </span>
+  </div>
+</div>
