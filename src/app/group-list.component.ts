@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class GroupListComponent implements OnInit {
   private groups: Group[];
+  loading: boolean;
   @Input() selectedStudentId: number;
 
   constructor(private heroService: GroupService, private router: Router) {}
@@ -25,6 +26,10 @@ export class GroupListComponent implements OnInit {
   }
 
   private getGroups() {
-    this.heroService.getGroups().then(groups => this.groups = groups);
+    this.loading = true;
+    this.heroService.getGroups().then(groups => {
+      this.groups = groups;
+      this.loading = false;
+    });
   }
 }

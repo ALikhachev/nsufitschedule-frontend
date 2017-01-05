@@ -1,4 +1,7 @@
 <div class="schedule">
+  <div *ngIf="loading">
+    <md-spinner></md-spinner>
+  </div>
   <div *ngFor="let schedDay of schedule; let i = index" class="day">
     <span class="weekday">{{convertWeekdayToWord(i)}}</span>
     <div *ngFor="let schedItem of schedDay" class="item">

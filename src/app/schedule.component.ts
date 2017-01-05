@@ -20,12 +20,14 @@ export class ScheduleComponent implements OnInit {
     [4, 'Пятница'],
     [5, 'Суббота']]);
   private selectedStudentId: number;
+  loading: boolean;
 
   constructor(private scheduleService: ScheduleService,
               private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.loading = true;
     this.route.params
       .switchMap((params: Params) => {
         if ('id' in params) {
@@ -34,7 +36,10 @@ export class ScheduleComponent implements OnInit {
         }
         return Promise.resolve(null);
       })
-      .subscribe(schedule => this.schedule = schedule);
+      .subscribe(schedule => {
+        this.schedule = schedule;
+        this.loading = false;
+      });
   }
 
   convertWeekdayToWord(id: number): string {

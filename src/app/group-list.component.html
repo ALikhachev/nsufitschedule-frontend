@@ -3,6 +3,9 @@
 </div>
 <div class="groups-wrap">
   <ul class="groups">
+    <div *ngIf="loading">
+      <md-spinner></md-spinner>
+    </div>
     <li class="group" *ngFor="let group of groups">
       <span class="group-name">{{group.name}}</span>
       <ol class="students">

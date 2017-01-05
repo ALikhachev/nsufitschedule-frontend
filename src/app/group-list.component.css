@@ -8,6 +8,7 @@
   font-size: 14px;
   font-weight: 400;
   list-style: none;
+  padding: 0;
   /*display: flex;*/
   /*flex-wrap: wrap;*/
   /*justify-content: center;*/
@@ -19,6 +20,7 @@
 }
 
 .group-name {
+
   font-weight: 700;
 }
 
@@ -45,4 +47,8 @@
 .call-to-action {
   text-align: center;
   font-size: 30px;
+}
+
+md-spinner {
+  margin: auto;
 }
