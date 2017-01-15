@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ScheduleService} from "./schedule.service";
 import {ScheduleItem} from "./schedule";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 import 'rxjs/add/operator/switchMap';
 
@@ -20,19 +20,26 @@ export class ScheduleComponent implements OnInit {
     [4, 'Пятница'],
     [5, 'Суббота']]);
   private selectedStudentId: number;
+  evenWeek: boolean;
   loading: boolean;
 
   constructor(private scheduleService: ScheduleService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
-    this.loading = true;
     this.route.params
       .switchMap((params: Params) => {
+        this.loading = true;
         if ('id' in params) {
           this.selectedStudentId = +params['id'];
-          return this.scheduleService.getSchedule(+params['id'])
+          if ('evenWeek' in params) {
+            this.evenWeek = params['evenWeek'] == 'true';
+          } else {
+            this.evenWeek = true;
+          }
+          return this.scheduleService.getSchedule(this.selectedStudentId, this.evenWeek)
         }
         return Promise.resolve(null);
       })
@@ -44,5 +51,10 @@ export class ScheduleComponent implements OnInit {
 
   convertWeekdayToWord(id: number): string {
     return this.idToWeekday.get(id)
+  }
+
+  selectWeekParity(evenWeek: boolean) {
+    this.evenWeek = evenWeek;
+    this.router.navigate(['/schedule', this.selectedStudentId, {'evenWeek': this.evenWeek}]);
   }
 }

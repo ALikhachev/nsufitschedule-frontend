@@ -8,8 +8,8 @@ import {ScheduleItem} from "./schedule";
 export class ScheduleService {
   constructor(private http: Http) {}
 
-  getSchedule(userId: number): Promise<ScheduleItem[][]> {
-    const scheduleUrl = `https://nsufit.herokuapp.com/api/schedule/${userId}`;
+  getSchedule(userId: number, evenWeek: boolean): Promise<ScheduleItem[][]> {
+    const scheduleUrl = `https://nsufit.herokuapp.com/api/schedule/${userId}?week={${evenWeek}`;
     return this.http.get(scheduleUrl)
       .toPromise()
       .then(resp => {

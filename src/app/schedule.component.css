@@ -7,8 +7,21 @@
   text-align: center;
 }
 
+.loading.hidden {
+  min-height: 0;
+}
+
+.loading {
+  min-height: 150px;
+  transition: 0.3s linear all;
+}
+
 md-spinner {
-  margin: auto;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
 .day {
@@ -41,3 +54,33 @@ legend {
   display: block;
   width: 100%;
 }
+
+.nsu-logo {
+  height: 80px;
+  width: 200px;
+  background: url(assets/blue_nsu_logo.png) no-repeat;
+  background-size: contain;
+}
+
+.week-parity-selector {
+  position: absolute;
+  right: 14px;
+  top: 85px;
+}
+
+.week-parity-button {
+  margin: 0;
+  padding: auto;
+  width: 20px;
+  height: 20px;
+  background-color: #f2f2f2;
+  color: #555;
+  outline: none;
+  border: none;
+}
+
+.week-parity-button[disabled] {
+  background-color: #cee0e6;
+  color: #555;
+}
+
