@@ -8,7 +8,7 @@ import {ScheduleItem} from "./schedule";
 export class ScheduleService {
   constructor(private http: Http) {}
 
-  getSchedule(userId: number, evenWeek: boolean): Promise<ScheduleItem[][]> {
+  getSchedule(userId: number, evenWeek: boolean): Promise<[boolean, (ScheduleItem[][])]> {
     const scheduleUrl = `https://nsufit.herokuapp.com/api/schedule/${userId}?week={${evenWeek}`;
     return this.http.get(scheduleUrl)
       .toPromise()
@@ -18,6 +18,7 @@ export class ScheduleService {
         for (let i = 0; i < 6; ++i) {
           items.push(new Array(7) as ScheduleItem[]);
         }
+        let parityMeaningful = false;
         for (let rawItem of data) {
           const overlap: ScheduleItem = items[rawItem.weekday][rawItem.time];
           items[rawItem.weekday][rawItem.time] = {
@@ -26,8 +27,11 @@ export class ScheduleService {
             lecture: rawItem.lecture,
             overlap: overlap
           } as ScheduleItem;
+          if (rawItem.week != null) {
+            parityMeaningful = true;
+          }
         }
-        return items;
+        return [parityMeaningful, items];
       })
   }
 }

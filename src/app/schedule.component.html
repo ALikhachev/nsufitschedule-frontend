@@ -1,6 +1,6 @@
 <nav>
   <div class="nsu-logo" title="Novosibirsk State University"></div>
-  <div class="week-parity-selector" *ngIf="schedule">
+  <div class="week-parity-selector" *ngIf="schedule && parityMeaningful">
     Выбор недели: <button class="week-parity-button" [disabled]="!evenWeek" (click)="selectWeekParity(false)">1</button><button class="week-parity-button" [disabled]="evenWeek" (click)="selectWeekParity(true)">2</button>
   </div>
 </nav>

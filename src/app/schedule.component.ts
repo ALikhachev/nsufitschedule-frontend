@@ -20,8 +20,9 @@ export class ScheduleComponent implements OnInit {
     [4, 'Пятница'],
     [5, 'Суббота']]);
   private selectedStudentId: number;
-  evenWeek: boolean;
-  loading: boolean;
+  private evenWeek: boolean;
+  private loading: boolean;
+  private parityMeaningful: boolean;
 
   constructor(private scheduleService: ScheduleService,
               private route: ActivatedRoute,
@@ -44,7 +45,8 @@ export class ScheduleComponent implements OnInit {
         return Promise.resolve(null);
       })
       .subscribe(schedule => {
-        this.schedule = schedule;
+        this.parityMeaningful = schedule[0];
+        this.schedule = schedule[1];
         this.loading = false;
       });
   }
