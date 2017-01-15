@@ -42,7 +42,7 @@ export class ScheduleComponent implements OnInit {
           }
           return this.scheduleService.getSchedule(this.selectedStudentId, this.evenWeek)
         }
-        return Promise.resolve(null);
+        return Promise.resolve([false, null]);
       })
       .subscribe(schedule => {
         this.parityMeaningful = schedule[0];
