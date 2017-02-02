@@ -9,7 +9,7 @@ export class ScheduleService {
   constructor(private http: Http) {}
 
   getSchedule(userId: number, evenWeek: boolean): Promise<[boolean, (ScheduleItem[][])]> {
-    const scheduleUrl = `https://nsufit.herokuapp.com/api/schedule/${userId}?week={${evenWeek}`;
+    const scheduleUrl = `https://nsufit.herokuapp.com/api/schedule/${userId}?week=${evenWeek}`;
     return this.http.get(scheduleUrl)
       .toPromise()
       .then(resp => {
