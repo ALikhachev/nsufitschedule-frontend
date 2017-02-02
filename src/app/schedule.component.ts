@@ -38,7 +38,9 @@ export class ScheduleComponent implements OnInit {
           if ('evenWeek' in params) {
             this.evenWeek = params['evenWeek'] == 'true';
           } else {
-            this.evenWeek = true;
+            let date = new Date();
+            let onejan = new Date(date.getFullYear(), 0, 1);
+            this.evenWeek = Math.ceil((((date.getSeconds() - onejan.getSeconds()) / 86400000) + onejan.getDay() + 1) / 7) % 2 == 1;
           }
           return this.scheduleService.getSchedule(this.selectedStudentId, this.evenWeek)
         }
