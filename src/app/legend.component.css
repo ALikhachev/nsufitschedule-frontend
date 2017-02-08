@@ -16,6 +16,10 @@
   background-color: white;
 }
 
+.item:last-child {
+  border-bottom: 1px solid black;
+}
+
 .item:nth-of-type(2n+1) {
   background-color: #e5e5e5;
 }

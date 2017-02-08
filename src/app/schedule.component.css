@@ -29,10 +29,17 @@ md-spinner {
   width: calc(100% / 3 - 10px);
   align-content: center;
   min-width: 350px;
-  max-width: 100vw;
+  max-width: calc(100vw - 18px);
   margin: 5px;
   vertical-align: top;
   text-align: left;
+}
+
+@media (max-width: 350px) {
+  .day {
+    min-width: calc(100vw - 18px);
+    max-width: calc(100vw - 18px);
+  }
 }
 
 .weekday {
@@ -44,6 +51,10 @@ md-spinner {
 
 .item {
   background-color: white;
+}
+
+.item:last-child {
+  border-bottom: 1px solid black;
 }
 
 .item:nth-of-type(2n+1) {
@@ -71,13 +82,14 @@ legend {
 
 .week-parity-button {
   margin: 0;
-  padding: auto;
+  padding: 0px;
   width: 20px;
   height: 20px;
   background-color: #f2f2f2;
   color: #555;
   outline: none;
   border: none;
+  text-align: center;
 }
 
 .week-parity-button[disabled] {

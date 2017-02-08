@@ -40,6 +40,10 @@
   border-bottom: none;
 }
 
+.student-item:last-child {
+  border-bottom: 1px solid black;
+}
+
 .student.selected {
   background-color: darkgray;
 }
