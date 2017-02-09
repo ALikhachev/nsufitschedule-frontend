@@ -35,7 +35,7 @@ md-spinner {
   text-align: left;
 }
 
-@media (max-width: 350px) {
+@media (max-width: 368px) {
   .day {
     min-width: calc(100vw - 18px);
     max-width: calc(100vw - 18px);
