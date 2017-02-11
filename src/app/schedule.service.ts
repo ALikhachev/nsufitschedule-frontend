@@ -8,6 +8,7 @@ import {ScheduleItem} from "./schedule-item";
 export class ScheduleService {
   private oddSchedule: Promise<ScheduleItem[][]>;
   private evenSchedule: Promise<ScheduleItem[][]>;
+  private userId: number;
 
   constructor(private http: Http) {}
 
@@ -35,11 +36,12 @@ export class ScheduleService {
   }
 
   getSchedule(userId: number, evenWeek: boolean): Promise<ScheduleItem[][]> {
-    if (!this.oddSchedule || !this.evenSchedule) {
+    if (!this.oddSchedule || !this.evenSchedule || userId != this.userId) {
       const oddScheduleUrl = `https://nsufit.herokuapp.com/api/schedule/${userId}?week=false`;
       const evenScheduleUrl = `https://nsufit.herokuapp.com/api/schedule/${userId}?week=true`;
       this.oddSchedule = this.parseSchedule(oddScheduleUrl);
       this.evenSchedule = this.parseSchedule(evenScheduleUrl);
+      this.userId = userId;
     }
     return evenWeek ? this.evenSchedule : this.oddSchedule;
   }
