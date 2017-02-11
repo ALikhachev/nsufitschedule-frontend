@@ -22,7 +22,6 @@ export class ScheduleComponent implements OnInit {
   private selectedStudentId: number;
   private evenWeek: boolean;
   private loading: boolean;
-  private parityMeaningful: boolean;
 
   constructor(private scheduleService: ScheduleService,
               private route: ActivatedRoute,

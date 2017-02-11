@@ -13,12 +13,14 @@ import {AppRoutingModule} from "./app-routing.module";
 import {FirstWordPipe} from "./first_word.pipe";
 import {ScheduleItemComponent} from "./schedule-item.component";
 import {LegendComponent} from "./legend.component";
+import {IntervalsComponent} from "./intervals.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstWordPipe,
     LegendComponent,
+    IntervalsComponent,
     ScheduleComponent,
     ScheduleItemComponent,
     GroupListComponent,
