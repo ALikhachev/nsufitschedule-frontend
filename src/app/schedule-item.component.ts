@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {ScheduleItem} from "./schedule";
+import {ScheduleItem} from "./schedule-item";
 
 @Component({
   selector: 'schedule-item',

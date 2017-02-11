@@ -2,7 +2,7 @@ import { Injectable }    from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
-import {ScheduleItem} from "./schedule";
+import {ScheduleItem} from "./schedule-item";
 
 @Injectable()
 export class ScheduleService {
@@ -26,6 +26,7 @@ export class ScheduleService {
             name: rawItem.name,
             room: rawItem.room,
             lecture: rawItem.lecture,
+            teacher: rawItem.teacher,
             overlap: overlap
           } as ScheduleItem;
         }

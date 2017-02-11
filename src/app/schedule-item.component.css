@@ -23,7 +23,7 @@
   white-space: nowrap;
 }
 
-.room {
+.info {
   float: right;
 }
 
@@ -35,4 +35,12 @@
 
 .lecture {
   font-weight: 700;
+}
+
+.teacher {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url(assets/teacher.png) no-repeat;
+  vertical-align: text-bottom;
 }
