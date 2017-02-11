@@ -6,11 +6,13 @@ import {ScheduleItem} from "./schedule";
 
 @Injectable()
 export class ScheduleService {
+  private oddSchedule: Promise<ScheduleItem[][]>;
+  private evenSchedule: Promise<ScheduleItem[][]>;
+
   constructor(private http: Http) {}
 
-  getSchedule(userId: number, evenWeek: boolean): Promise<[boolean, (ScheduleItem[][])]> {
-    const scheduleUrl = `https://nsufit.herokuapp.com/api/schedule/${userId}?week=${evenWeek}`;
-    return this.http.get(scheduleUrl)
+  private parseSchedule(url): Promise<ScheduleItem[][]> {
+    return this.http.get(url)
       .toPromise()
       .then(resp => {
         let data = resp.json().data;
@@ -18,7 +20,6 @@ export class ScheduleService {
         for (let i = 0; i < 6; ++i) {
           items.push(new Array(7) as ScheduleItem[]);
         }
-        let parityMeaningful = false;
         for (let rawItem of data) {
           const overlap: ScheduleItem = items[rawItem.weekday][rawItem.time];
           items[rawItem.weekday][rawItem.time] = {
@@ -27,11 +28,18 @@ export class ScheduleService {
             lecture: rawItem.lecture,
             overlap: overlap
           } as ScheduleItem;
-          if (rawItem.week != null) {
-            parityMeaningful = true;
-          }
         }
-        return [parityMeaningful, items];
+        return items;
       })
+  }
+
+  getSchedule(userId: number, evenWeek: boolean): Promise<ScheduleItem[][]> {
+    if (!this.oddSchedule || !this.evenSchedule) {
+      const oddScheduleUrl = `https://nsufit.herokuapp.com/api/schedule/${userId}?week=false`;
+      const evenScheduleUrl = `https://nsufit.herokuapp.com/api/schedule/${userId}?week=true`;
+      this.oddSchedule = this.parseSchedule(oddScheduleUrl);
+      this.evenSchedule = this.parseSchedule(evenScheduleUrl);
+    }
+    return evenWeek ? this.evenSchedule : this.oddSchedule;
   }
 }

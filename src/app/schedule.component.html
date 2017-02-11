@@ -1,6 +1,6 @@
 <nav>
   <a href="#" title="Расписание ФИТ" rel="sidebar" class="nsu-logo"></a>
-  <div class="week-parity-selector" *ngIf="schedule && parityMeaningful">
+  <div class="week-parity-selector" *ngIf="schedule">
     Выбор недели: <button class="week-parity-button" [disabled]="!evenWeek" (click)="selectWeekParity(false)">1</button><button class="week-parity-button" [disabled]="evenWeek" (click)="selectWeekParity(true)">2</button>
   </div>
 </nav>
