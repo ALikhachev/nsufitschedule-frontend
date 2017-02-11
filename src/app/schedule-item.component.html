@@ -1,6 +1,6 @@
 <div class="item" [class.bad]="item && item.overlap" (click)="showNextItem()">
   <span *ngIf="shownItem" class="item-info">
-    <span [class.lecture]="shownItem.lecture" class="subj-name" title="{{shownItem.name}}">{{shownItem.name}}</span>
+    <span [class.lecture]="shownItem.lecture" class="subj-name" mdTooltip="{{shownItem.name}}">{{shownItem.name}}</span>
     <span class="info">
       <span class="room">{{shownItem.room}}</span>
       <span class="teacher" *ngIf="shownItem.teacher" mdTooltip="{{shownItem.teacher}}"></span>
